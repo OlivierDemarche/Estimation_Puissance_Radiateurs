@@ -39,10 +39,6 @@ def affichage_resultats(puissance_tot, fichier_rad, t_entree, t_sortie):
 
 if __name__ == "__main__":
     for fichier, regime, dim in zip(FICHIERS, REGIME, REGIME_DIM):
-        temperature_entree = regime[0]
-        temperature_sortie = regime[1]
-        regime_dim_entree = dim[0]
-        regime_dim_sortie = dim[1]
-        liste_radiateur = import_radiateur(fichier_rad=fichier, t_entree_dim=regime_dim_entree, t_sortie_dim=regime_dim_sortie)
-        puissance_totale = calcul_puissance_totale(liste_de_radiateur=liste_radiateur, t_entree=temperature_entree, t_sortie=temperature_sortie)
-        affichage_resultats(puissance_tot=puissance_totale, fichier_rad=fichier, t_entree=temperature_entree, t_sortie=temperature_sortie)
+        liste_radiateur = import_radiateur(fichier_rad=fichier, t_entree_dim=dim[0], t_sortie_dim=dim[1])
+        puissance_totale = calcul_puissance_totale(liste_de_radiateur=liste_radiateur, t_entree=regime[0], t_sortie=regime[1])
+        affichage_resultats(puissance_tot=puissance_totale, fichier_rad=fichier, t_entree=regime[0], t_sortie=regime[1])
